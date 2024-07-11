@@ -65,7 +65,7 @@ class ModelManager:
                 ModelType.DIFFUSERS_SDXL,
             ]:
                 return SDXL(device, **kwargs)
-        print(f"kuls======== init_model finished")
+        logger.info(f"kuls======== init_model finished")
         raise NotImplementedError(f"Unsupported model: {name}")
 
     @torch.inference_mode()

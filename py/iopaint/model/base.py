@@ -95,7 +95,7 @@ class InpaintModel:
         """
         inpaint_result = None
         # logger.info(f"hd_strategy: {config.hd_strategy}")
-        print("kuls======hd_strategy: ", config.hd_strategy)
+        logger.info("kuls======hd_strategy: ", config.hd_strategy)
         if config.hd_strategy == HDStrategy.CROP:
             t1 = time.time()
             if max(image.shape) > config.hd_strategy_crop_trigger_size:
@@ -110,7 +110,7 @@ class InpaintModel:
                 for crop_image, crop_box in crop_result:
                     x1, y1, x2, y2 = crop_box
                     inpaint_result[y1:y2, x1:x2, :] = crop_image
-            print("kuls Run crop strategy ==== time: ", time.time() - t1)
+            logger.info("kuls Run crop strategy ==== time: ", time.time() - t1)
         elif config.hd_strategy == HDStrategy.RESIZE:
             if max(image.shape) > config.hd_strategy_resize_limit:
                 origin_size = image.shape[:2]

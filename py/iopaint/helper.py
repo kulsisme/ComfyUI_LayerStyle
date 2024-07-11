@@ -113,7 +113,7 @@ def load_jit_model(url_or_path, device, model_md5: str):
     except Exception as e:
         handle_error(model_path, model_md5, e)
     model.eval()
-    print(f"kuls======== load_jit_model finished")
+    logger.info(f"kuls======== load_jit_model finished")
     return model
 
 
